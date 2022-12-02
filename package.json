@@ -1,0 +1,29 @@
+{
+  "name": "feedback-form-backend",
+  "description": "Please lets have all the modules we will be deploying and share among us\r We can equally develop API's and decide on which database we will use\r We will need to create different branches related to each modules and merge all after done",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesuseunkayode/feedback-form-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesuseunkayode/feedback-form-backend/issues"
+  },
+  "homepage": "https://github.com/jesuseunkayode/feedback-form-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
