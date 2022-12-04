@@ -1,10 +1,10 @@
-  const Feedback = require('../model/feedbackFormModel')
+  const FeedbackSchema = require('../model/feedbackFormModel')
 
   //todo lists:
 //app.get('/api/v1/feedbacks')    get all the feedback form templates.
 const getAllFeedBackForms = async (request, response) => {
     try {
-        const feedback = await Feedback.find({})
+        const feedback = await FeedbackSchema.find({})
         response.status(200).json({feedback})
     } catch (error) {
         response.status(500).json({feedback})
@@ -15,7 +15,7 @@ const getAllFeedBackForms = async (request, response) => {
 //app.post('/api/v1/feedbacks')   create a new feedback form templates.
 const createFeedbackForm = async (request, response) => {
     try {
-        const feedback = await Feedback.create(request.body)
+        const feedback = await FeedbackSchema.create(request.body)
         response.status(201).json({feedback})
     } catch (error) {
         response.status.json({message: error})
@@ -27,7 +27,7 @@ const createFeedbackForm = async (request, response) => {
 const getSingleFeedbackForm = async (request, response) => {
     try {
     const{id: feedbackID} = request.params
-    const foundFeedback = await Feedback.findOne({_id:feedbackID})
+    const foundFeedback = await FeedbackSchema.findOne({_id:feedbackID})
     if(!foundFeedback){
         return response.status(404).json({message: `No feedbackform with Id: ${feedbackID}`})
     }
@@ -42,7 +42,7 @@ const getSingleFeedbackForm = async (request, response) => {
 const updateFeedbackForm = async (request, response) => {
     try {
         const{id:feedbackID} = request.params
-        const updatedFeedback = await Feedback.findOneAndUpdate({_id: feedbackID}, request.body)
+        const updatedFeedback = await FeedbackSchema.findOneAndUpdate({_id: feedbackID}, request.body)
         if(!updatedFeedback){
             return response.status(404).json({message: `can not be found`})
         }
@@ -56,7 +56,7 @@ const updateFeedbackForm = async (request, response) => {
 const deleteFeedbackForm = async (request, response) => {
    try {
     const {id: feedbackID} = request.params
-    const deletedFeedback = await Feedback.findOneAndDelete({_id:feedbackID})
+    const deletedFeedback = await FeedbackSchema.findOneAndDelete({_id:feedbackID})
     if(!deleteFeedbackForm){
         return response.status(404).json({Message: `No feedback form with such id: ${feedbackID}`})
     }
