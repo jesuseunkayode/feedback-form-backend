@@ -1,21 +1,19 @@
-  const FeedbackSchema = require('../model/feedbackFormModel')
+const EventFeedbackSchema = require('../model/eventFeedbackFormModel')
 
-  //todo lists:
-//app.get('/api/v1/feedbacks')    get all the feedback form templates.
-const getAllFeedBackForms = async (request, response) => {
+//get all the event feedback form.
+const getAllEventFeedBackForms = async (request, response) => {
     try {
-        const feedback = await FeedbackSchema.find({})
+        const feedback = await EventFeedbackSchema.find({})
         response.status(200).json({feedback})
     } catch (error) {
         response.status(500).json({feedback})
     }
-    
 }
 
-//app.post('/api/v1/feedbacks')   create a new feedback form templates.
-const createFeedbackForm = async (request, response) => {
+ //  create a new event feedback form.
+const createEventFeedbackForm = async (request, response) => {
     try {
-        const feedback = await FeedbackSchema.create(request.body)
+        const feedback = await EventFeedbackSchema.create(request.body)
         response.status(201).json({feedback})
     } catch (error) {
         response.status.json({message: error})
@@ -23,11 +21,11 @@ const createFeedbackForm = async (request, response) => {
     
 }
 
-//app.get('/api/v1/feedbacks/:id')          get a single feedback form template.
-const getSingleFeedbackForm = async (request, response) => {
+//get a single event feedback form.
+const getSingleEventFeedbackForm = async (request, response) => {
     try {
     const{id: feedbackID} = request.params
-    const foundFeedback = await FeedbackSchema.findOne({_id:feedbackID})
+    const foundFeedback = await EventFeedbackSchema.findOne({_id:feedbackID})
     if(!foundFeedback){
         return response.status(404).json({message: `No feedbackform with Id: ${feedbackID}`})
     }
@@ -38,8 +36,8 @@ const getSingleFeedbackForm = async (request, response) => {
 }
 
 
-//app.patch('api/v1/feedback/:id')       update the feedback form details.
-const updateFeedbackForm = async (request, response) => {
+//update the event feedback form details.
+const updateEventFeedbackForm = async (request, response) => {
     try {
         const{id:feedbackID} = request.params
         const updatedFeedback = await FeedbackSchema.findOneAndUpdate({_id: feedbackID}, request.body)
@@ -52,15 +50,15 @@ const updateFeedbackForm = async (request, response) => {
     }
 }
 
-//app.delete('/api/v1/feedback/:id')        delete a single feedback form templete.
-const deleteFeedbackForm = async (request, response) => {
+// delete a single event feedback form.
+const deleteEventFeedbackForm = async (request, response) => {
    try {
     const {id: feedbackID} = request.params
-    const deletedFeedback = await FeedbackSchema.findOneAndDelete({_id:feedbackID})
+    const deletedEventFeedbackForm = await EventFeedbackSchema.findOneAndDelete({_id:feedbackID})
     if(!deleteFeedbackForm){
         return response.status(404).json({Message: `No feedback form with such id: ${feedbackID}`})
     }
-      response.status(200).json({deletedFeedback})
+      response.status(200).json({deletedEventFeedback})
    } catch (error) {
       response.status(500).json({message: error})
    }
@@ -71,9 +69,9 @@ const deleteFeedbackForm = async (request, response) => {
 
 
 module.exports = {
-    getAllFeedBackForms,
-    createFeedbackForm,
-    getSingleFeedbackForm,
-    updateFeedbackForm,
-    deleteFeedbackForm
+    getAllEventFeedBackForms,
+    createEventFeedbackForm,
+    getSingleEventFeedbackForm,
+    updateEventFeedbackForm,
+    deleteEventFeedbackForm
 }
