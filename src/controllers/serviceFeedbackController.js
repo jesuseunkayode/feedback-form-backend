@@ -16,7 +16,7 @@ const createServiceFeedbackForm = async (request, response) => {
         const serviceFeedback = await ServiceFeedbackSchema.create(request.body)
         response.status(201).json({serviceFeedback})
     } catch (error) {
-        response.status.json({message: error})
+        response.status(404).json({message: error})
     }
     
 }

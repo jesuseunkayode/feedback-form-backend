@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 // Event feedback Form Schema
 const EventFeedbackSchema = new mongoose.Schema({
-    rating: Number,
-    comment: String,
+    Rating: Number,
+    Comment: String,
     createdAt: {
         type: Date,
         default: Date.now()

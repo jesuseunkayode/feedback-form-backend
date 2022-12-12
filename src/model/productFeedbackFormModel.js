@@ -8,7 +8,7 @@ const ProductFeedbackSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    comment: String,
+    Comment: String,
     createdAt: {
         type: Date,
         default: Date.now()
@@ -22,4 +22,4 @@ const ProductFeedbackSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model('productfeedback form', ProductFeedbackSchema)
+module.exports = mongoose.model('productfeedback', ProductFeedbackSchema)

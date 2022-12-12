@@ -14,9 +14,10 @@ const getAllProductFeedBackForms = async (request, response) => {
 const createProductFeedbackForm = async (request, response) => {
     try {
         const feedback = await ProductFeedbackSchema.create(request.body)
-        response.status(201).json({feedback})
+         response.status(201).json({feedback})
+        
     } catch (error) {
-        response.status.json({message: error})
+        response.status(404).json({message: error})
     }
     
 }

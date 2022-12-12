@@ -9,6 +9,7 @@ require('dotenv').config()
 
 //middleware
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 app.use('/api/v1/productfeedback', productFeedbackRoute)
 app.use('/api/v1/productfeedback/:id', productFeedbackRoute)
 app.use('/api/v1/eventfeedback', eventFeedbackRoute)

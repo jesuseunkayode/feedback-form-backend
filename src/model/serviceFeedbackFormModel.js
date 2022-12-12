@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 //service feedback form schema
 const ServiceFeedbackSchema = new mongoose.Schema ({
-    title: String,
-    description: String,
+    Title: String,
+    Description: String,
     createdAt: {
         type: Date,
         default: Date.now()
